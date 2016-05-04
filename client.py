@@ -14,6 +14,11 @@ def get_service_ip_list():
     r = requests.get(url)
     return r.content
 
+def get_resource_ip_list():
+    url = 'http://ipaddr-r:10000/'
+    r = requests.get(url)
+    return r.content
+
 def get_ip_list():
     ip_list = []
     var = os.popen('ip addr').read().split("\n")
@@ -29,8 +34,9 @@ def get_ip_list():
 @app.route("/")
 def get_ipaddr():
     service_content = get_service_ip_list()
+    resource_content = get_resource_ip_list()
     ip_list = get_ip_list()
-    return service_content + '  client ip: ' + " ".join(ip_list)
+    return 'resource ' + resource_content + '  ' + service_content + '  client ip: ' + " ".join(ip_list)
 
 
 if __name__ == "__main__":
