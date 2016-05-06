@@ -3,7 +3,9 @@ appname: ipaddr-client
 build:
   base: laincloud/centos-lain:20160503
   prepare:
-    - pip install -r pip-req.txt
+    version: 0
+    script:
+        - pip install -r pip-req.txt
   script:
     - pip install -r pip-req.txt
 
@@ -19,7 +21,6 @@ use_resources:
   ipaddr-resource:
     services:
       - ipaddr-r
- 
+
 notify:
   slack: "#lain"
-

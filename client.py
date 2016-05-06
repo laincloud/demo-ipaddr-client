@@ -9,15 +9,18 @@ from flask import Flask
 p = re.compile(r'.*inet (.*\..*\..*\..*)\/.*')
 app = Flask(__name__)
 
+
 def get_service_ip_list():
     url = 'http://ipaddr:10000/'
     r = requests.get(url)
     return r.content
 
+
 def get_resource_ip_list():
     url = 'http://ipaddr-r:10000/'
     r = requests.get(url)
     return r.content
+
 
 def get_ip_list():
     ip_list = []
