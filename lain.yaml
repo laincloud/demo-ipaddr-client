@@ -19,7 +19,7 @@ use_resources:
   ipaddr-resource:
     services:
       - ipaddr-r
- 
+
 notify:
   slack: "#lain"
 
